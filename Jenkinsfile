@@ -4,7 +4,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        git(branch: 'main', url: 'http://localhost:3000/siddharth/jenkins-hello-world.git')
         sh 'mvn clean package -DskipTests=true'
         archiveArtifacts 'target/hello-demo-*.jar'
       }
@@ -12,7 +11,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'mvn clean test'
+        sh 'mvn test'
         junit(testResults: 'target/surefire-reports/TEST-*.xml', keepProperties: true, keepTestNames: true)
       }
     }
@@ -33,7 +32,7 @@ pipeline {
     
     stage('Integration Testing') {
       steps {
-        sh 'sleep 15s'
+        sh "sleep ${params.SLEEP_TIME}"
         sh 'echo Testing using cURL commands......'
       }
     }
