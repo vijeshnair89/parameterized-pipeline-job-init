@@ -11,8 +11,8 @@ mvn clean package -DskipTests=true
 mvn test
 ```
 - Total 6 test cases, out of which
-  - 5 test cases will pass and 
-  - 1 test case fails!
+  - All `6` test cases will pass and 
+  - `No` failures!
  
 ### Deploy/Run
 ```
