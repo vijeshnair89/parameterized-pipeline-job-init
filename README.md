@@ -2,7 +2,7 @@
 This repository is used for Jenkins Training Demo
      
 ### Build JAR
-```
+```   
 mvn clean package -DskipTests=true
 ```
 
